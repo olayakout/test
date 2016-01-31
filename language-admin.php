@@ -46,7 +46,8 @@
 	$Translation["attention"] = "Attention!";
 	$Translation['security risk admin'] = 'You are using the default admin username and password. This is a huge security risk. Please change at least the admin password from the <a href="pageSettings.php">Admin Settings</a> page <em>immediately</em>.';
 	$Translation['security risk'] = 'You are using the default admin password. This is a huge security	risk. Please change the admin password from the <a href="pageSettings.php">Admin Settings</a> page <em>immediately</em>.' ;
-	
+	$Translation['plugins'] = 'Plugins';
+
 	//pageAssignOwners.php
 	$Translation["assigned table records to group"] = "Assigned <NUMBER> records of table '<TABLE>' to group '<GROUP>'";
 	$Translation["assigned table records to group and member"] = "Assigned <NUMBER> records of table '<TABLE>' to group '<GROUP>' , member '<MEMBERID>'";

@@ -95,7 +95,7 @@
 				<tbody>
 					<?php if(is_array($records)) foreach($records as $pkValue => $record){ ?>
 					<tr>
-						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][2]}"; ?>" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][2]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><a href="<?php echo $Translation['ImageFolder'] . $record[2]; ?>" rel="lightbox"><img src="thumbnail.php?i=<?php echo $record[2]; ?>&t=employees&f=Photo&v=tv" class="img-thumbnail"></a></td>
+						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][2]}"; ?>" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][2]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><a href="<?php echo $Translation['ImageFolder'] . $record[2]; ?>" data-lightbox="employees-Photo"><img src="thumbnail.php?i=<?php echo $record[2]; ?>&t=employees&f=Photo&v=tv" class="img-thumbnail"></a></td>
 						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][3]}"; ?>" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][3]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><?php echo $record[3]; ?></td>
 						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][4]}"; ?>" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][4]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><?php echo $record[4]; ?></td>
 						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][5]}"; ?>" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][5]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><?php echo $record[5]; ?></td>
@@ -133,3 +133,4 @@
 		<?php } ?>
 	</div>
 </div>
+<script>$j(function(){ $j('img[src^="thumbnail.php?i=&"').parent().hide(); });</script>
