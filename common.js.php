@@ -136,6 +136,10 @@ function shippers_validateData(){
 	if($j('#CompanyName').val() == ''){ modal_window({ message: '<div class="alert alert-danger"><?php echo addslashes($Translation['field not null']); ?></div>', title: "<?php echo addslashes($Translation['error:']); ?> Company Name", close: function(){ $j('[name=CompanyName]').focus(); $j('[name=CompanyName]').parents('.form-group').addClass('has-error'); } }); return false; };
 	return true;
 }
+function logs_validateData(){
+	$j('.has-error').removeClass('has-error');
+	return true;
+}
 function post(url, params, update, disable, loading){
 	new Ajax.Request(
 		url, {

@@ -155,6 +155,24 @@ shippers_delete1Tip=["",spacer+"This option allows each member of the group to d
 shippers_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Shippers' table."];
 shippers_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Shippers' table."];
 
+// logs table
+logs_addTip=["",spacer+"This option allows all members of the group to add records to the 'Logs' table. A member who adds a record to the table becomes the 'owner' of that record."];
+
+logs_view0Tip=["",spacer+"This option prohibits all members of the group from viewing any record in the 'Logs' table."];
+logs_view1Tip=["",spacer+"This option allows each member of the group to view only his own records in the 'Logs' table."];
+logs_view2Tip=["",spacer+"This option allows each member of the group to view any record owned by any member of the group in the 'Logs' table."];
+logs_view3Tip=["",spacer+"This option allows each member of the group to view all records in the 'Logs' table."];
+
+logs_edit0Tip=["",spacer+"This option prohibits all members of the group from modifying any record in the 'Logs' table."];
+logs_edit1Tip=["",spacer+"This option allows each member of the group to edit only his own records in the 'Logs' table."];
+logs_edit2Tip=["",spacer+"This option allows each member of the group to edit any record owned by any member of the group in the 'Logs' table."];
+logs_edit3Tip=["",spacer+"This option allows each member of the group to edit any records in the 'Logs' table, regardless of their owner."];
+
+logs_delete0Tip=["",spacer+"This option prohibits all members of the group from deleting any record in the 'Logs' table."];
+logs_delete1Tip=["",spacer+"This option allows each member of the group to delete only his own records in the 'Logs' table."];
+logs_delete2Tip=["",spacer+"This option allows each member of the group to delete any record owned by any member of the group in the 'Logs' table."];
+logs_delete3Tip=["",spacer+"This option allows each member of the group to delete any records in the 'Logs' table."];
+
 /*
 	Style syntax:
 	-------------

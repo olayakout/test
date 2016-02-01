@@ -50,7 +50,8 @@
 				'products' => 'Products',
 				'categories' => 'Product Categories',
 				'suppliers' => 'Suppliers',
-				'shippers' => 'Shippers'
+				'shippers' => 'Shippers',
+				'logs' => 'Logs'
 			);
 
 			return $arrTables;

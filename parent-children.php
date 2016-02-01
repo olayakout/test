@@ -204,6 +204,8 @@
 			'suppliers' => array(   
 			),
 			'shippers' => array(   
+			),
+			'logs' => array(   
 			)
 		);
 

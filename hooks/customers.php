@@ -100,6 +100,16 @@
 	}
 
 	function customers_dv($selectedID, $memberInfo, &$html, &$args){
+		if(isset($_REQUEST['dvprint_x'])) return;
+		 Ob_start();?>
+			<p> kahsdkajshdkajshd </p>
+			<h1>djfhksdjfhgksjdfh</h1>
+			
+		<?php
+		$tabs=ob_get_contents(); //to get contets of buffer before closing it
+		Ob_end_clean(); 
+		$html.=$tabs; //append to main html
+		
 
 	}
 

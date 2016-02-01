@@ -2,7 +2,7 @@
 	// For help on using hooks, please refer to http://bigprof.com/appgini/help/working-with-generated-web-database-application/hooks
 
 	function products_init(&$options, $memberInfo, &$args){
-
+		$options->FilterPage="hooks/products_filter.php";
 		return TRUE;
 	}
 

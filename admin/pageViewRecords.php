@@ -82,8 +82,8 @@
 						<td align="center">
 							<?php echo $Translation['show records'] ; ?>
 							<?php
-								$arrFields = array('', 'customers', 'employees', 'orders', 'order_details', 'products', 'categories', 'suppliers', 'shippers');
-								$arrFieldCaptions = array('All tables', 'Customers', 'Employees', 'Orders', 'Order Items', 'Products', 'Product Categories', 'Suppliers', 'Shippers');
+								$arrFields = array('', 'customers', 'employees', 'orders', 'order_details', 'products', 'categories', 'suppliers', 'shippers', 'logs');
+								$arrFieldCaptions = array('All tables', 'Customers', 'Employees', 'Orders', 'Order Items', 'Products', 'Product Categories', 'Suppliers', 'Shippers', 'Logs');
 								echo htmlSelect('tableName', $arrFields, $arrFieldCaptions, $tableName);
 							?>
 							</td>

@@ -7,6 +7,11 @@
 	}
 
 	function login_failed($attempt, &$args){
+		$ip=$_SERVER['REMOTE_ADDR'];
+		$ts=time();
+		$details=makeSafe("username is{$attempt['usename']} and password is {$attempt['password']}");
+		sql("insert into logs set ip='{$ip}',ts='{$ts}',details='{$details}'",$eo);
+		echo $eo;
 
 	}
 

@@ -98,6 +98,12 @@
 			'ShipperID' => array('appgini' => 'INT(11) not null primary key auto_increment '),
 			'CompanyName' => array('appgini' => 'VARCHAR(40) not null '),
 			'Phone' => array('appgini' => 'VARCHAR(24) ')
+		),
+		'logs' => array(   
+			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
+			'ip' => array('appgini' => 'VARCHAR(16) '),
+			'ts' => array('appgini' => 'BIGINT '),
+			'details' => array('appgini' => 'TEXT ')
 		)
 	);
 
