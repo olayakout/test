@@ -1,11 +1,11 @@
-<?php 
-echo $script_name;
-if($script_name=="index.php" && isset($_GET['signIn'])){
-?>
 
 <script>
-$j("body").css( "background-color", "pink" );
-</script>
-<?php
+	function get_date(field){
+		var year=$j('#'.field).val();
+		var month=$j('#'.field.'-mm').val();
+		var day=$j('#'.field.'-dd').val();
+
+		var date=date(year,month-1,day);
+		return date;
 	}
-	?>
+</script>
