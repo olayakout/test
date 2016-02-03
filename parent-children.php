@@ -19,9 +19,9 @@
 					'display-refresh' => true,
 					'display-add-new' => true,
 					'forced-where' => '',
-					'display-fields' => array(2 => 'Photo', 3 => 'Last Name', 4 => 'First Name', 5 => 'Title', 7 => 'Hire Date', 12 => 'Country', 16 => 'ReportsTo'),
-					'display-field-names' => array(2 => 'Photo', 3 => 'LastName', 4 => 'FirstName', 5 => 'Title', 7 => 'HireDate', 12 => 'Country', 16 => 'ReportsTo'),
-					'sortable-fields' => array(2 => '3', 3 => '4', 4 => '5', 5 => '6', 7 => '`employees`.`HireDate`', 12 => '13', 16 => '17'),
+					'display-fields' => array(2 => 'Photo', 3 => 'Last Name', 4 => 'First Name', 5 => 'Title', 7 => 'Age', 8 => 'Hire Date', 13 => 'Country', 17 => 'ReportsTo'),
+					'display-field-names' => array(2 => 'Photo', 3 => 'LastName', 4 => 'FirstName', 5 => 'Title', 7 => 'age', 8 => 'HireDate', 13 => 'Country', 17 => 'ReportsTo'),
+					'sortable-fields' => array(2 => '3', 3 => '4', 4 => '5', 5 => '6', 7 => '8', 8 => '`employees`.`HireDate`', 13 => '14', 17 => '18'),
 					'records-per-page' => 10,
 					'default-sort-by' => 3,
 					'default-sort-direction' => 'asc',
@@ -30,7 +30,7 @@
 					'show-page-progress' => true,
 					'template' => 'children-employees',
 					'template-printable' => 'children-employees-printable',
-					'query' => "SELECT `employees`.`EmployeeID` as 'EmployeeID', `employees`.`TitleOfCourtesy` as 'TitleOfCourtesy', `employees`.`Photo` as 'Photo', `employees`.`LastName` as 'LastName', `employees`.`FirstName` as 'FirstName', `employees`.`Title` as 'Title', if(`employees`.`BirthDate`,date_format(`employees`.`BirthDate`,'%m/%d/%Y'),'') as 'BirthDate', if(`employees`.`HireDate`,date_format(`employees`.`HireDate`,'%m/%d/%Y'),'') as 'HireDate', `employees`.`Address` as 'Address', `employees`.`City` as 'City', `employees`.`Region` as 'Region', `employees`.`PostalCode` as 'PostalCode', `employees`.`Country` as 'Country', `employees`.`HomePhone` as 'HomePhone', `employees`.`Extension` as 'Extension', `employees`.`Notes` as 'Notes', IF(    CHAR_LENGTH(`employees1`.`LastName`) || CHAR_LENGTH(`employees1`.`FirstName`), CONCAT_WS('',   `employees1`.`LastName`, ', ', `employees1`.`FirstName`), '') as 'ReportsTo' FROM `employees` LEFT JOIN `employees` as employees1 ON `employees1`.`EmployeeID`=`employees`.`ReportsTo` "
+					'query' => "SELECT `employees`.`EmployeeID` as 'EmployeeID', `employees`.`TitleOfCourtesy` as 'TitleOfCourtesy', `employees`.`Photo` as 'Photo', `employees`.`LastName` as 'LastName', `employees`.`FirstName` as 'FirstName', `employees`.`Title` as 'Title', if(`employees`.`BirthDate`,date_format(`employees`.`BirthDate`,'%m/%d/%Y'),'') as 'BirthDate', `employees`.`age` as 'age', if(`employees`.`HireDate`,date_format(`employees`.`HireDate`,'%m/%d/%Y'),'') as 'HireDate', `employees`.`Address` as 'Address', `employees`.`City` as 'City', `employees`.`Region` as 'Region', `employees`.`PostalCode` as 'PostalCode', `employees`.`Country` as 'Country', `employees`.`HomePhone` as 'HomePhone', `employees`.`Extension` as 'Extension', `employees`.`Notes` as 'Notes', IF(    CHAR_LENGTH(`employees1`.`LastName`) || CHAR_LENGTH(`employees1`.`FirstName`), CONCAT_WS('',   `employees1`.`LastName`, ', ', `employees1`.`FirstName`), '') as 'ReportsTo' FROM `employees` LEFT JOIN `employees` as employees1 ON `employees1`.`EmployeeID`=`employees`.`ReportsTo` "
 				)
 			),
 			'orders' => array(   

@@ -2,7 +2,12 @@
 	// For help on using hooks, please refer to http://bigprof.com/appgini/help/working-with-generated-web-database-application/hooks
 
 	function employees_init(&$options, $memberInfo, &$args){
-
+		if(isset($_REQUEST['SelectedID'])){
+			$id=makeSafe($_REQUEST['SelectedID']);
+			$today=date('Y-m-d');
+			
+			sql(" update employees set age=floor(datediff('{$today}',BirthDate)/365.25) where EmployeeID={$id}",$eo);
+		}
 		return TRUE;
 	}
 

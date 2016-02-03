@@ -26,6 +26,7 @@
 			'FirstName' => array('appgini' => 'VARCHAR(10) '),
 			'Title' => array('appgini' => 'VARCHAR(30) '),
 			'BirthDate' => array('appgini' => 'DATE '),
+			'age' => array('appgini' => 'INT '),
 			'HireDate' => array('appgini' => 'DATE '),
 			'Address' => array('appgini' => 'VARCHAR(50) '),
 			'City' => array('appgini' => 'VARCHAR(15) '),

@@ -29,6 +29,7 @@
 		"`employees`.`FirstName`" => "FirstName",
 		"`employees`.`Title`" => "Title",
 		"if(`employees`.`BirthDate`,date_format(`employees`.`BirthDate`,'%m/%d/%Y'),'')" => "BirthDate",
+		"`employees`.`age`" => "age",
 		"if(`employees`.`HireDate`,date_format(`employees`.`HireDate`,'%m/%d/%Y'),'')" => "HireDate",
 		"`employees`.`Address`" => "Address",
 		"`employees`.`City`" => "City",
@@ -49,8 +50,8 @@
 		5 => 5,
 		6 => 6,
 		7 => '`employees`.`BirthDate`',
-		8 => '`employees`.`HireDate`',
-		9 => 9,
+		8 => '`employees`.`age`',
+		9 => '`employees`.`HireDate`',
 		10 => 10,
 		11 => 11,
 		12 => 12,
@@ -58,7 +59,8 @@
 		14 => 14,
 		15 => 15,
 		16 => 16,
-		17 => 17
+		17 => 17,
+		18 => 18
 	);
 
 	// Fields that can be displayed in the csv file
@@ -70,6 +72,7 @@
 		"`employees`.`FirstName`" => "FirstName",
 		"`employees`.`Title`" => "Title",
 		"if(`employees`.`BirthDate`,date_format(`employees`.`BirthDate`,'%m/%d/%Y'),'')" => "BirthDate",
+		"`employees`.`age`" => "age",
 		"if(`employees`.`HireDate`,date_format(`employees`.`HireDate`,'%m/%d/%Y'),'')" => "HireDate",
 		"`employees`.`Address`" => "Address",
 		"`employees`.`City`" => "City",
@@ -89,6 +92,7 @@
 		"`employees`.`FirstName`" => "First Name",
 		"`employees`.`Title`" => "Title",
 		"`employees`.`BirthDate`" => "Birth Date",
+		"`employees`.`age`" => "Age",
 		"`employees`.`HireDate`" => "Hire Date",
 		"`employees`.`Address`" => "Address",
 		"`employees`.`City`" => "City",
@@ -108,6 +112,7 @@
 		"`employees`.`FirstName`" => "FirstName",
 		"`employees`.`Title`" => "Title",
 		"if(`employees`.`BirthDate`,date_format(`employees`.`BirthDate`,'%m/%d/%Y'),'')" => "BirthDate",
+		"`employees`.`age`" => "age",
 		"if(`employees`.`HireDate`,date_format(`employees`.`HireDate`,'%m/%d/%Y'),'')" => "HireDate",
 		"`employees`.`Address`" => "Address",
 		"`employees`.`City`" => "City",
@@ -151,10 +156,10 @@
 	$x->DefaultSortField = '4';
 	$x->DefaultSortDirection = 'asc';
 
-	$x->ColWidth   = array(  60, 100, 100, 200, 100, 120, 150);
-	$x->ColCaption = array("Photo", "Last Name", "First Name", "Title", "Hire Date", "Country", "ReportsTo");
-	$x->ColFieldName = array('Photo', 'LastName', 'FirstName', 'Title', 'HireDate', 'Country', 'ReportsTo');
-	$x->ColNumber  = array(3, 4, 5, 6, 8, 13, 17);
+	$x->ColWidth   = array(  60, 100, 100, 200, 150, 100, 120, 150);
+	$x->ColCaption = array("Photo", "Last Name", "First Name", "Title", "Age", "Hire Date", "Country", "ReportsTo");
+	$x->ColFieldName = array('Photo', 'LastName', 'FirstName', 'Title', 'age', 'HireDate', 'Country', 'ReportsTo');
+	$x->ColNumber  = array(3, 4, 5, 6, 8, 9, 14, 18);
 
 	$x->Template = 'templates/employees_templateTV.html';
 	$x->SelectedTemplate = 'templates/employees_templateTVS.html';

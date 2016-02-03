@@ -24,6 +24,8 @@ function employees_insert(){
 		if($data['Title'] == empty_lookup_value){ $data['Title'] = ''; }
 	$data['BirthDate'] = intval($_REQUEST['BirthDateYear']) . '-' . intval($_REQUEST['BirthDateMonth']) . '-' . intval($_REQUEST['BirthDateDay']);
 	$data['BirthDate'] = parseMySQLDate($data['BirthDate'], '');
+	$data['age'] = makeSafe($_REQUEST['age']);
+		if($data['age'] == empty_lookup_value){ $data['age'] = ''; }
 	$data['HireDate'] = intval($_REQUEST['HireDateYear']) . '-' . intval($_REQUEST['HireDateMonth']) . '-' . intval($_REQUEST['HireDateDay']);
 	$data['HireDate'] = parseMySQLDate($data['HireDate'], '1');
 	$data['Address'] = br2nl(makeSafe($_REQUEST['Address']));
@@ -61,7 +63,7 @@ function employees_insert(){
 	}
 
 	$o=array('silentErrors' => true);
-	sql('insert into `employees` set       `TitleOfCourtesy`=' . (($data['TitleOfCourtesy'] !== '' && $data['TitleOfCourtesy'] !== NULL) ? "'{$data['TitleOfCourtesy']}'" : 'NULL') . ', ' . ($data['Photo'] != '' ? "`Photo`='{$data['Photo']}'" : '`Photo`=NULL') . ', `LastName`=' . (($data['LastName'] !== '' && $data['LastName'] !== NULL) ? "'{$data['LastName']}'" : 'NULL') . ', `FirstName`=' . (($data['FirstName'] !== '' && $data['FirstName'] !== NULL) ? "'{$data['FirstName']}'" : 'NULL') . ', `Title`=' . (($data['Title'] !== '' && $data['Title'] !== NULL) ? "'{$data['Title']}'" : 'NULL') . ', `BirthDate`=' . (($data['BirthDate'] !== '' && $data['BirthDate'] !== NULL) ? "'{$data['BirthDate']}'" : 'NULL') . ', `HireDate`=' . (($data['HireDate'] !== '' && $data['HireDate'] !== NULL) ? "'{$data['HireDate']}'" : 'NULL') . ', `Address`=' . (($data['Address'] !== '' && $data['Address'] !== NULL) ? "'{$data['Address']}'" : 'NULL') . ', `City`=' . (($data['City'] !== '' && $data['City'] !== NULL) ? "'{$data['City']}'" : 'NULL') . ', `Region`=' . (($data['Region'] !== '' && $data['Region'] !== NULL) ? "'{$data['Region']}'" : 'NULL') . ', `PostalCode`=' . (($data['PostalCode'] !== '' && $data['PostalCode'] !== NULL) ? "'{$data['PostalCode']}'" : 'NULL') . ', `Country`=' . (($data['Country'] !== '' && $data['Country'] !== NULL) ? "'{$data['Country']}'" : 'NULL') . ', `HomePhone`=' . (($data['HomePhone'] !== '' && $data['HomePhone'] !== NULL) ? "'{$data['HomePhone']}'" : 'NULL') . ', `Extension`=' . (($data['Extension'] !== '' && $data['Extension'] !== NULL) ? "'{$data['Extension']}'" : 'NULL') . ', `Notes`=' . (($data['Notes'] !== '' && $data['Notes'] !== NULL) ? "'{$data['Notes']}'" : 'NULL') . ', `ReportsTo`=' . (($data['ReportsTo'] !== '' && $data['ReportsTo'] !== NULL) ? "'{$data['ReportsTo']}'" : 'NULL'), $o);
+	sql('insert into `employees` set       `TitleOfCourtesy`=' . (($data['TitleOfCourtesy'] !== '' && $data['TitleOfCourtesy'] !== NULL) ? "'{$data['TitleOfCourtesy']}'" : 'NULL') . ', ' . ($data['Photo'] != '' ? "`Photo`='{$data['Photo']}'" : '`Photo`=NULL') . ', `LastName`=' . (($data['LastName'] !== '' && $data['LastName'] !== NULL) ? "'{$data['LastName']}'" : 'NULL') . ', `FirstName`=' . (($data['FirstName'] !== '' && $data['FirstName'] !== NULL) ? "'{$data['FirstName']}'" : 'NULL') . ', `Title`=' . (($data['Title'] !== '' && $data['Title'] !== NULL) ? "'{$data['Title']}'" : 'NULL') . ', `BirthDate`=' . (($data['BirthDate'] !== '' && $data['BirthDate'] !== NULL) ? "'{$data['BirthDate']}'" : 'NULL') . ', `age`=' . (($data['age'] !== '' && $data['age'] !== NULL) ? "'{$data['age']}'" : 'NULL') . ', `HireDate`=' . (($data['HireDate'] !== '' && $data['HireDate'] !== NULL) ? "'{$data['HireDate']}'" : 'NULL') . ', `Address`=' . (($data['Address'] !== '' && $data['Address'] !== NULL) ? "'{$data['Address']}'" : 'NULL') . ', `City`=' . (($data['City'] !== '' && $data['City'] !== NULL) ? "'{$data['City']}'" : 'NULL') . ', `Region`=' . (($data['Region'] !== '' && $data['Region'] !== NULL) ? "'{$data['Region']}'" : 'NULL') . ', `PostalCode`=' . (($data['PostalCode'] !== '' && $data['PostalCode'] !== NULL) ? "'{$data['PostalCode']}'" : 'NULL') . ', `Country`=' . (($data['Country'] !== '' && $data['Country'] !== NULL) ? "'{$data['Country']}'" : 'NULL') . ', `HomePhone`=' . (($data['HomePhone'] !== '' && $data['HomePhone'] !== NULL) ? "'{$data['HomePhone']}'" : 'NULL') . ', `Extension`=' . (($data['Extension'] !== '' && $data['Extension'] !== NULL) ? "'{$data['Extension']}'" : 'NULL') . ', `Notes`=' . (($data['Notes'] !== '' && $data['Notes'] !== NULL) ? "'{$data['Notes']}'" : 'NULL') . ', `ReportsTo`=' . (($data['ReportsTo'] !== '' && $data['ReportsTo'] !== NULL) ? "'{$data['ReportsTo']}'" : 'NULL'), $o);
 	if($o['error']!=''){
 		echo $o['error'];
 		echo "<a href=\"employees_view.php?addNew_x=1\">{$Translation['< back']}</a>";
@@ -195,6 +197,8 @@ function employees_update($selected_id){
 		if($data['Title'] == empty_lookup_value){ $data['Title'] = ''; }
 	$data['BirthDate'] = intval($_REQUEST['BirthDateYear']) . '-' . intval($_REQUEST['BirthDateMonth']) . '-' . intval($_REQUEST['BirthDateDay']);
 	$data['BirthDate'] = parseMySQLDate($data['BirthDate'], '');
+	$data['age'] = makeSafe($_REQUEST['age']);
+		if($data['age'] == empty_lookup_value){ $data['age'] = ''; }
 	$data['HireDate'] = intval($_REQUEST['HireDateYear']) . '-' . intval($_REQUEST['HireDateMonth']) . '-' . intval($_REQUEST['HireDateDay']);
 	$data['HireDate'] = parseMySQLDate($data['HireDate'], '1');
 	$data['Address'] = br2nl(makeSafe($_REQUEST['Address']));
@@ -255,7 +259,7 @@ function employees_update($selected_id){
 	}
 
 	$o=array('silentErrors' => true);
-	sql('update `employees` set       `TitleOfCourtesy`=' . (($data['TitleOfCourtesy'] !== '' && $data['TitleOfCourtesy'] !== NULL) ? "'{$data['TitleOfCourtesy']}'" : 'NULL') . ', ' . ($data['Photo']!='' ? "`Photo`='{$data['Photo']}'" : ($_REQUEST['Photo_remove'] != 1 ? '`Photo`=`Photo`' : '`Photo`=NULL')) . ', `LastName`=' . (($data['LastName'] !== '' && $data['LastName'] !== NULL) ? "'{$data['LastName']}'" : 'NULL') . ', `FirstName`=' . (($data['FirstName'] !== '' && $data['FirstName'] !== NULL) ? "'{$data['FirstName']}'" : 'NULL') . ', `Title`=' . (($data['Title'] !== '' && $data['Title'] !== NULL) ? "'{$data['Title']}'" : 'NULL') . ', `BirthDate`=' . (($data['BirthDate'] !== '' && $data['BirthDate'] !== NULL) ? "'{$data['BirthDate']}'" : 'NULL') . ', `HireDate`=' . (($data['HireDate'] !== '' && $data['HireDate'] !== NULL) ? "'{$data['HireDate']}'" : 'NULL') . ', `Address`=' . (($data['Address'] !== '' && $data['Address'] !== NULL) ? "'{$data['Address']}'" : 'NULL') . ', `City`=' . (($data['City'] !== '' && $data['City'] !== NULL) ? "'{$data['City']}'" : 'NULL') . ', `Region`=' . (($data['Region'] !== '' && $data['Region'] !== NULL) ? "'{$data['Region']}'" : 'NULL') . ', `PostalCode`=' . (($data['PostalCode'] !== '' && $data['PostalCode'] !== NULL) ? "'{$data['PostalCode']}'" : 'NULL') . ', `Country`=' . (($data['Country'] !== '' && $data['Country'] !== NULL) ? "'{$data['Country']}'" : 'NULL') . ', `HomePhone`=' . (($data['HomePhone'] !== '' && $data['HomePhone'] !== NULL) ? "'{$data['HomePhone']}'" : 'NULL') . ', `Extension`=' . (($data['Extension'] !== '' && $data['Extension'] !== NULL) ? "'{$data['Extension']}'" : 'NULL') . ', `Notes`=' . (($data['Notes'] !== '' && $data['Notes'] !== NULL) ? "'{$data['Notes']}'" : 'NULL') . ', `ReportsTo`=' . (($data['ReportsTo'] !== '' && $data['ReportsTo'] !== NULL) ? "'{$data['ReportsTo']}'" : 'NULL') . " where `EmployeeID`='".makeSafe($selected_id)."'", $o);
+	sql('update `employees` set       `TitleOfCourtesy`=' . (($data['TitleOfCourtesy'] !== '' && $data['TitleOfCourtesy'] !== NULL) ? "'{$data['TitleOfCourtesy']}'" : 'NULL') . ', ' . ($data['Photo']!='' ? "`Photo`='{$data['Photo']}'" : ($_REQUEST['Photo_remove'] != 1 ? '`Photo`=`Photo`' : '`Photo`=NULL')) . ', `LastName`=' . (($data['LastName'] !== '' && $data['LastName'] !== NULL) ? "'{$data['LastName']}'" : 'NULL') . ', `FirstName`=' . (($data['FirstName'] !== '' && $data['FirstName'] !== NULL) ? "'{$data['FirstName']}'" : 'NULL') . ', `Title`=' . (($data['Title'] !== '' && $data['Title'] !== NULL) ? "'{$data['Title']}'" : 'NULL') . ', `BirthDate`=' . (($data['BirthDate'] !== '' && $data['BirthDate'] !== NULL) ? "'{$data['BirthDate']}'" : 'NULL') . ', `age`=' . (($data['age'] !== '' && $data['age'] !== NULL) ? "'{$data['age']}'" : 'NULL') . ', `HireDate`=' . (($data['HireDate'] !== '' && $data['HireDate'] !== NULL) ? "'{$data['HireDate']}'" : 'NULL') . ', `Address`=' . (($data['Address'] !== '' && $data['Address'] !== NULL) ? "'{$data['Address']}'" : 'NULL') . ', `City`=' . (($data['City'] !== '' && $data['City'] !== NULL) ? "'{$data['City']}'" : 'NULL') . ', `Region`=' . (($data['Region'] !== '' && $data['Region'] !== NULL) ? "'{$data['Region']}'" : 'NULL') . ', `PostalCode`=' . (($data['PostalCode'] !== '' && $data['PostalCode'] !== NULL) ? "'{$data['PostalCode']}'" : 'NULL') . ', `Country`=' . (($data['Country'] !== '' && $data['Country'] !== NULL) ? "'{$data['Country']}'" : 'NULL') . ', `HomePhone`=' . (($data['HomePhone'] !== '' && $data['HomePhone'] !== NULL) ? "'{$data['HomePhone']}'" : 'NULL') . ', `Extension`=' . (($data['Extension'] !== '' && $data['Extension'] !== NULL) ? "'{$data['Extension']}'" : 'NULL') . ', `Notes`=' . (($data['Notes'] !== '' && $data['Notes'] !== NULL) ? "'{$data['Notes']}'" : 'NULL') . ', `ReportsTo`=' . (($data['ReportsTo'] !== '' && $data['ReportsTo'] !== NULL) ? "'{$data['ReportsTo']}'" : 'NULL') . " where `EmployeeID`='".makeSafe($selected_id)."'", $o);
 	if($o['error']!=''){
 		echo $o['error'];
 		echo '<a href="employees_view.php?SelectedID='.urlencode($selected_id)."\">{$Translation['< back']}</a>";
@@ -371,7 +375,7 @@ function employees_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $
 		$combo_Country->SelectedData = $row['Country'];
 		$combo_ReportsTo->SelectedData = $row['ReportsTo'];
 	}else{
-		$combo_Country->SelectedText = ( $_REQUEST['FilterField'][1]=='13' && $_REQUEST['FilterOperator'][1]=='<=>' ? (get_magic_quotes_gpc() ? stripslashes($_REQUEST['FilterValue'][1]) : $_REQUEST['FilterValue'][1]) : "");
+		$combo_Country->SelectedText = ( $_REQUEST['FilterField'][1]=='14' && $_REQUEST['FilterOperator'][1]=='<=>' ? (get_magic_quotes_gpc() ? stripslashes($_REQUEST['FilterValue'][1]) : $_REQUEST['FilterValue'][1]) : "");
 		$combo_ReportsTo->SelectedData = $filterer_ReportsTo;
 	}
 	$combo_Country->Render();
@@ -472,6 +476,7 @@ function employees_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $
 		$jsReadOnly .= "\tjQuery('#Title').replaceWith('<div class=\"form-control-static\" id=\"Title\">' + (jQuery('#Title').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('#BirthDate').prop('readonly', true);\n";
 		$jsReadOnly .= "\tjQuery('#BirthDateDay, #BirthDateMonth, #BirthDateYear').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\tjQuery('#age').replaceWith('<div class=\"form-control-static\" id=\"age\">' + (jQuery('#age').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('#HireDate').prop('readonly', true);\n";
 		$jsReadOnly .= "\tjQuery('#HireDateDay, #HireDateMonth, #HireDateYear').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\tjQuery('#Address').replaceWith('<div class=\"form-control-static\" id=\"Address\">' + (jQuery('#Address').val() || '') + '</div>');\n";
@@ -531,6 +536,7 @@ function employees_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $
 	$templateCode=str_replace('<%%UPLOADFILE(FirstName)%%>', '', $templateCode);
 	$templateCode=str_replace('<%%UPLOADFILE(Title)%%>', '', $templateCode);
 	$templateCode=str_replace('<%%UPLOADFILE(BirthDate)%%>', '', $templateCode);
+	$templateCode=str_replace('<%%UPLOADFILE(age)%%>', '', $templateCode);
 	$templateCode=str_replace('<%%UPLOADFILE(HireDate)%%>', '', $templateCode);
 	$templateCode=str_replace('<%%UPLOADFILE(Address)%%>', '', $templateCode);
 	$templateCode=str_replace('<%%UPLOADFILE(City)%%>', '', $templateCode);
@@ -559,6 +565,8 @@ function employees_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $
 		$templateCode=str_replace('<%%URLVALUE(Title)%%>', urlencode($urow['Title']), $templateCode);
 		$templateCode=str_replace('<%%VALUE(BirthDate)%%>', @date('m/d/Y', @strtotime(htmlspecialchars($row['BirthDate'], ENT_QUOTES, 'iso-8859-1'))), $templateCode);
 		$templateCode=str_replace('<%%URLVALUE(BirthDate)%%>', urlencode(@date('m/d/Y', @strtotime(htmlspecialchars($urow['BirthDate'], ENT_QUOTES, 'iso-8859-1')))), $templateCode);
+		$templateCode=str_replace('<%%VALUE(age)%%>', htmlspecialchars($row['age'], ENT_QUOTES, 'iso-8859-1'), $templateCode);
+		$templateCode=str_replace('<%%URLVALUE(age)%%>', urlencode($urow['age']), $templateCode);
 		$templateCode=str_replace('<%%VALUE(HireDate)%%>', @date('m/d/Y', @strtotime(htmlspecialchars($row['HireDate'], ENT_QUOTES, 'iso-8859-1'))), $templateCode);
 		$templateCode=str_replace('<%%URLVALUE(HireDate)%%>', urlencode(@date('m/d/Y', @strtotime(htmlspecialchars($urow['HireDate'], ENT_QUOTES, 'iso-8859-1')))), $templateCode);
 		if($dvprint){
@@ -602,6 +610,8 @@ function employees_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $
 		$templateCode=str_replace('<%%URLVALUE(Title)%%>', urlencode(''), $templateCode);
 		$templateCode=str_replace('<%%VALUE(BirthDate)%%>', '', $templateCode);
 		$templateCode=str_replace('<%%URLVALUE(BirthDate)%%>', urlencode(''), $templateCode);
+		$templateCode=str_replace('<%%VALUE(age)%%>', '', $templateCode);
+		$templateCode=str_replace('<%%URLVALUE(age)%%>', urlencode(''), $templateCode);
 		$templateCode=str_replace('<%%VALUE(HireDate)%%>', '1', $templateCode);
 		$templateCode=str_replace('<%%URLVALUE(HireDate)%%>', urlencode('1'), $templateCode);
 		$templateCode=str_replace('<%%VALUE(Address)%%>', '', $templateCode);
