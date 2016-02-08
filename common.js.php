@@ -140,6 +140,10 @@ function logs_validateData(){
 	$j('.has-error').removeClass('has-error');
 	return true;
 }
+function test_validateData(){
+	$j('.has-error').removeClass('has-error');
+	return true;
+}
 function post(url, params, update, disable, loading){
 	new Ajax.Request(
 		url, {

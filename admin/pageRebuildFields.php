@@ -105,6 +105,11 @@
 			'ip' => array('appgini' => 'VARCHAR(16) '),
 			'ts' => array('appgini' => 'BIGINT '),
 			'details' => array('appgini' => 'TEXT ')
+		),
+		'test' => array(   
+			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
+			'name' => array('appgini' => 'VARCHAR(40) '),
+			'description' => array('appgini' => 'TEXT ')
 		)
 	);
 

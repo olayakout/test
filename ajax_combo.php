@@ -213,6 +213,8 @@
 		'shippers' => array(  
 		),
 		'logs' => array(  
+		),
+		'test' => array(  
 		)
 	);
 
